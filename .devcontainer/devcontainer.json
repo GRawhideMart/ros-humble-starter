@@ -1,7 +1,7 @@
 {
     "name": "ROS 2 Humble Starter",
     "build": {
-        "dockerfile": "../Dockerfile",
+        "dockerfile": "Dockerfile",
         "context": ".."
     },
     "remoteUser": "ros",
