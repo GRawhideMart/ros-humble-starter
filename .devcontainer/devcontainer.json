@@ -1,0 +1,39 @@
+{
+    "name": "ROS 2 Humble Starter",
+    "build": {
+        "dockerfile": "../Dockerfile",
+        "context": ".."
+    },
+    "remoteUser": "ros",
+    "runArgs": [
+        "--network=host",
+        "--privileged",
+        "--ipc=host",
+        // GUI Support (WSLg / X11)
+        "--env=DISPLAY=${env:DISPLAY}",
+        "--env=WAYLAND_DISPLAY=${env:WAYLAND_DISPLAY}",
+        "--env=XDG_RUNTIME_DIR=${env:XDG_RUNTIME_DIR}",
+        "--env=PULSE_SERVER=${env:PULSE_SERVER}",
+        // ROS 2 Network Configuration
+        "--env=ROS_DOMAIN_ID=0", // Default, it's critical to change this in a real lab with real robots.
+        "--env=ROS_LOCALHOST_ONLY=1" // Keep traffic local for simulations. Remove for physical robots.
+    ],
+    "mounts": [
+        "source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind,consistency=cached",
+        "source=/mnt/wslg,target=/mnt/wslg,type=bind,consistency=cached"
+    ],
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash"
+            },
+            "extensions": [
+                "ms-vscode.cpptools",
+                "ms-python.python",
+                "ranch-hand-robotics.rde-pack",
+                "twxs.cmake",
+                "ms-vscode.cmake-tools"
+            ]
+        }
+    }
+}

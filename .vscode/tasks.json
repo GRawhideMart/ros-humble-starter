@@ -1,0 +1,37 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "colcon: build",
+            "type": "shell",
+            "command": "colcon build --symlink-install",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": "$gcc",
+            "detail": "Build the whole workspace with symlinks (changes in Python reflect immediately)."
+        },
+        {
+            "label": "colcon: test",
+            "type": "shell",
+            "command": "colcon test",
+            "group": "test",
+            "problemMatcher": "$gcc"
+        },
+        {
+            "label": "colcon: clean",
+            "type": "shell",
+            "command": "rm -rf build install log",
+            "problemMatcher": []
+        },
+        {
+            "label": "foxglove: start bridge",
+            "type": "shell",
+            "command": "ros2 launch foxglove_bridge foxglove_bridge_launch.xml",
+            "isBackground": true,
+            "problemMatcher": [],
+            "detail": "Starts the WebSocket bridge on port 8765 for Foxglove Studio."
+        }
+    ]
+}
