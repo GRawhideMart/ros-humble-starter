@@ -18,6 +18,9 @@
         "--env=ROS_DOMAIN_ID=0", // Default, it's critical to change this in a real lab with real robots.
         "--env=ROS_LOCALHOST_ONLY=1" // Keep traffic local for simulations. Remove for physical robots.
     ],
+    "forwardPorts": [
+        8765
+    ],
     "mounts": [
         "source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind,consistency=cached",
         "source=/mnt/wslg,target=/mnt/wslg,type=bind,consistency=cached"
