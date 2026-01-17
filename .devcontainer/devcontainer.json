@@ -35,7 +35,8 @@
                 "ms-python.python",
                 "ranch-hand-robotics.rde-pack",
                 "twxs.cmake",
-                "ms-vscode.cmake-tools"
+                "ms-vscode.cmake-tools",
+                "kodorobotics.launchmap"
             ]
         }
     }
